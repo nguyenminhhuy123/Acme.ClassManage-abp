@@ -8,6 +8,6 @@ namespace Acme.ClassManage.Entities.Common
 {
     internal class Class1
     {
-        daddadawd hahah
+        daddadawd hahah huy dep trai
     }
 }
