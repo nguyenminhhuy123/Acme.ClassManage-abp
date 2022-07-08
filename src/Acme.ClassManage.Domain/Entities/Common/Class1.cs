@@ -8,5 +8,6 @@ namespace Acme.ClassManage.Entities.Common
 {
     internal class Class1
     {
+        dadda
     }
 }
