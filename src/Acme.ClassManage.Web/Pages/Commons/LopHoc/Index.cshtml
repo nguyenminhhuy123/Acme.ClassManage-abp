@@ -1,0 +1,32 @@
+﻿@page
+@using Acme.ClassManage.Web.Pages.Commons.LopHoc
+@using Acme.ClassManage.Localization
+@using Microsoft.Extensions.Localization
+
+@model Acme.ClassManage.Web.Pages.Commons.LopHoc.IndexModel
+@inject IStringLocalizer<ClassManageResource> L
+@section scripts
+{
+    <abp-script src="/Pages/Commons/LopHoc/Index.js" />
+}
+
+
+<abp-card>
+    <abp-card-header>
+    <abp-row>
+        <abp-column size-md="_6">
+            <abp-card-title>class</abp-card-title>
+        </abp-column>
+        <abp-column size-md="_6" class="text-end">
+            <abp-button id="insertlophoc"
+                        text="class"
+                        icon="plus"
+                        button-type="Primary"/>
+        </abp-column>
+    </abp-row>
+</abp-card-header>
+
+    <abp-card-body>
+        <abp-table striped-rows="true" id="ClassTableLopHoc"></abp-table>
+    </abp-card-body>
+</abp-card>

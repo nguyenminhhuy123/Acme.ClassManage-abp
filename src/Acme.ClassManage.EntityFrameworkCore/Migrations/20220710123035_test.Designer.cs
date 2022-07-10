@@ -13,8 +13,8 @@ using Volo.Abp.EntityFrameworkCore;
 namespace Acme.ClassManage.Migrations
 {
     [DbContext(typeof(ClassManageDbContext))]
-    [Migration("20220707095130_phase_table_test")]
-    partial class phase_table_test
+    [Migration("20220710123035_test")]
+    partial class test
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -26,7 +26,7 @@ namespace Acme.ClassManage.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("Acme.BookStore.Entities.Commons.LopHoc", b =>
+            modelBuilder.Entity("Acme.ClassManage.Entities.Commons.LopHoc", b =>
                 {
                     b.Property<Guid>("Id")
                         .HasColumnType("uniqueidentifier");
@@ -86,7 +86,7 @@ namespace Acme.ClassManage.Migrations
                     b.ToTable("AppLopHocs", "Common");
                 });
 
-            modelBuilder.Entity("Acme.BookStore.Entities.Commons.SinhVien", b =>
+            modelBuilder.Entity("Acme.ClassManage.Entities.Commons.SinhVien", b =>
                 {
                     b.Property<Guid>("Id")
                         .HasColumnType("uniqueidentifier");
@@ -2082,10 +2082,10 @@ namespace Acme.ClassManage.Migrations
                     b.ToTable("AbpTenantConnectionStrings", (string)null);
                 });
 
-            modelBuilder.Entity("Acme.BookStore.Entities.Commons.SinhVien", b =>
+            modelBuilder.Entity("Acme.ClassManage.Entities.Commons.SinhVien", b =>
                 {
-                    b.HasOne("Acme.BookStore.Entities.Commons.LopHoc", "lophoc")
-                        .WithMany("NhanViens")
+                    b.HasOne("Acme.ClassManage.Entities.Commons.LopHoc", "lophoc")
+                        .WithMany("sinhvien")
                         .HasForeignKey("lophocID")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -2370,9 +2370,9 @@ namespace Acme.ClassManage.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("Acme.BookStore.Entities.Commons.LopHoc", b =>
+            modelBuilder.Entity("Acme.ClassManage.Entities.Commons.LopHoc", b =>
                 {
-                    b.Navigation("NhanViens");
+                    b.Navigation("sinhvien");
                 });
 
             modelBuilder.Entity("Volo.Abp.AuditLogging.AuditLog", b =>

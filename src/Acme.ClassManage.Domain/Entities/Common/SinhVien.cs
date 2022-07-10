@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Volo.Abp.Domain.Entities.Auditing;
 
-namespace Acme.BookStore.Entities.Commons
+namespace Acme.ClassManage.Entities.Commons
 {
     public class SinhVien:FullAuditedAggregateRoot<Guid>
     {

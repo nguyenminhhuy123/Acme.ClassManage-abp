@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Text;
 using Volo.Abp.Application.Services;
 using Volo.Abp.Application.Dtos;
-using Acme.BookStore.LopHocDTO;
+using Acme.ClassManage.LopHocDTO;
 
-namespace Acme.BookStore.Services
+namespace Acme.ClassManage.Services
 {
     public interface ILopHocAppService :
     ICrudAppService<

@@ -1,6 +1,6 @@
-﻿using Acme.BookStore.Entities.Commons;
-using Acme.BookStore.LopHocDTO;
-using Acme.BookStore.SinhVienDTO;
+﻿using Acme.ClassManage.Entities.Commons;
+using Acme.ClassManage.LopHocDTO;
+using Acme.ClassManage.SinhVienDTO;
 using AutoMapper;
 
 namespace Acme.ClassManage;
@@ -19,8 +19,8 @@ public class ClassManageApplicationAutoMapperProfile : Profile
 
 
         //lop hoc
-        CreateMap<LopHoc, ResponseLopHoc>();
-        CreateMap<RequestLopHoc, LopHoc>();
+        CreateMap< Acme.ClassManage.Entities.Commons.LopHoc, ResponseLopHoc>();
+        CreateMap<RequestLopHoc,  Acme.ClassManage.Entities.Commons.LopHoc >();
         CreateMap<ResponseLopHoc, RequestLopHoc>();
     }
 }

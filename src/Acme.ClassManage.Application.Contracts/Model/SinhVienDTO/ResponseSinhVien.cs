@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Volo.Abp.Application.Dtos;
 
-namespace Acme.BookStore.SinhVienDTO
+namespace Acme.ClassManage.SinhVienDTO
 {
     public class ResponseSinhVien:EntityDto<Guid>
     {
@@ -13,6 +13,7 @@ namespace Acme.BookStore.SinhVienDTO
 
         public string CMND { get; set; }
 
-        public string bophan { get; set; }
+        public string namelophoc { get; set; }
+        
     }
 }

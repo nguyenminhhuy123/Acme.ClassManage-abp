@@ -1,0 +1,21 @@
+﻿@page
+@using Acme.ClassManage.Localization
+@using Acme.ClassManage.Web.Pages.Commons
+@using Microsoft.Extensions.Localization
+@using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Modal
+@model Acme.ClassManage.Web.Pages.Commons.SinhVien.CreateModal
+@inject IStringLocalizer<ClassManageResource> L
+@{
+    Layout = null;
+}
+ 
+<abp-dynamic-form  abp-model="sinhvien"  asp-page="Commons/SinhVien/CreateModal">
+    <abp-modal>
+        <abp-modal-header title="Them Sinh vien"></abp-modal-header>
+        <abp-modal-body>
+            <abp-form-content />
+        </abp-modal-body>
+        <abp-modal-footer buttons="@(AbpModalButtons.Save|AbpModalButtons.Cancel)" ></abp-modal-footer>
+    </abp-modal>
+</abp-dynamic-form>
+

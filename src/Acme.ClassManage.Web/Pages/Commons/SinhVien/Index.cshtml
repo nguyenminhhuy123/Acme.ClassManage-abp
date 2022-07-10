@@ -1,0 +1,32 @@
+﻿@page
+@using Acme.ClassManage.Web.Pages.Commons.SinhVien
+@using Acme.ClassManage.Localization
+@using Microsoft.Extensions.Localization
+
+@model Acme.ClassManage.Web.Pages.Commons.SinhVien.IndexModel
+@inject IStringLocalizer<ClassManageResource> L
+@section scripts
+{
+    <abp-script src="/Pages/Commons/SinhVien/Index.js" />
+}
+
+
+<abp-card>
+    <abp-card-header>
+    <abp-row>
+        <abp-column size-md="_6">
+            <abp-card-title>class</abp-card-title>
+        </abp-column>
+        <abp-column size-md="_6" class="text-end">
+            <abp-button id="insertsinhvien"
+                        text="class"
+                        icon="plus"
+                        button-type="Primary"/>
+        </abp-column>
+    </abp-row>
+</abp-card-header>
+
+    <abp-card-body>
+        <abp-table striped-rows="true" id="ClassTableSinhVien"></abp-table>
+    </abp-card-body>
+</abp-card>

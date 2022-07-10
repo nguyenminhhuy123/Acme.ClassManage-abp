@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace Acme.BookStore.SinhVienDTO
+namespace Acme.ClassManage.SinhVienDTO
 {
     public class RequestSinhVien
     {
@@ -24,6 +24,6 @@ namespace Acme.BookStore.SinhVienDTO
         public string CMND { get; set; }
 
         [Required(ErrorMessage ="Requried")]
-        public virtual Guid BophanID { get; set; }
+        public virtual Guid lopHocID { get; set; }
     }
 }
