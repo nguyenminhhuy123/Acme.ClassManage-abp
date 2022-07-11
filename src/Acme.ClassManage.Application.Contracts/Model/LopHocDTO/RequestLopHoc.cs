@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using System.ComponentModel.DataAnnotations;
 
-namespace Acme.BookStore.LopHocDTO
+namespace Acme.ClassManage.LopHocDTO
 {
     public class RequestLopHoc
     {

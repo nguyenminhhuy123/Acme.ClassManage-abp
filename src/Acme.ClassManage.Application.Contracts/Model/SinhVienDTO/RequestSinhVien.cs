@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace Acme.BookStore.SinhVienDTO
+namespace Acme.ClassManage.SinhVienDTO
 {
     public class RequestSinhVien
     {

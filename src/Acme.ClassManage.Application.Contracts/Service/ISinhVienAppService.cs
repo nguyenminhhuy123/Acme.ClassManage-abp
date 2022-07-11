@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 using Volo.Abp.Application.Dtos;
-using Acme.BookStore.SinhVienDTO;
+using Acme.ClassManage.SinhVienDTO;
 using Volo.Abp.Application.Services;
 
-namespace Acme.BookStore.Services
+namespace Acme.ClassManage.Services
 {
     public interface ISinhVienAppService: 
     ICrudAppService< 

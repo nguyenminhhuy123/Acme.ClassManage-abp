@@ -1,4 +1,4 @@
-﻿using Acme.BookStore.Entities.Commons;
+﻿using Acme.ClassManage.Entities.Commons;
 using Microsoft.EntityFrameworkCore;
 using Volo.Abp.AuditLogging.EntityFrameworkCore;
 using Volo.Abp.BackgroundJobs.EntityFrameworkCore;

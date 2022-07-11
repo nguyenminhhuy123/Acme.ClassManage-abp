@@ -1,6 +1,6 @@
-﻿using Acme.BookStore.Entities.Commons;
-using Acme.BookStore.LopHocDTO;
-using Acme.BookStore.SinhVienDTO;
+﻿using Acme.ClassManage.Entities.Commons;
+using Acme.ClassManage.LopHocDTO;
+using Acme.ClassManage.SinhVienDTO;
 using AutoMapper;
 
 namespace Acme.ClassManage;

@@ -5,12 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
-using Acme.BookStore.Entities.Commons;
-using Acme.BookStore.LopHocDTO;
-using Acme.BookStore.Services;
+using Acme.ClassManage.Entities.Commons;
+using Acme.ClassManage.LopHocDTO;
+using Acme.ClassManage.Services;
 using Volo.Abp.Domain.Repositories;
 
-namespace Acme.BookStore.Common
+namespace Acme.ClassManage.Common
 {
     public class LopHocAppService : 
         CrudAppService<LopHoc, ResponseLopHoc, Guid, PagedAndSortedResultRequestDto,

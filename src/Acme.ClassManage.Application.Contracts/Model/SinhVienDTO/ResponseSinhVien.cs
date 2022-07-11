@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Volo.Abp.Application.Dtos;
 
-namespace Acme.BookStore.SinhVienDTO
+namespace Acme.ClassManage.SinhVienDTO
 {
     public class ResponseSinhVien:EntityDto<Guid>
     {

@@ -1,6 +1,6 @@
-﻿using Acme.BookStore.Entities.Commons;
-using Acme.BookStore.SinhVienDTO;
-using Acme.BookStore.Services;
+﻿using Acme.ClassManage.Entities.Commons;
+using Acme.ClassManage.SinhVienDTO;
+using Acme.ClassManage.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +10,7 @@ using Volo.Abp.Application.Dtos;
 using Volo.Abp.Application.Services;
 using Volo.Abp.Domain.Repositories;
 
-namespace Acme.BookStore.Common
+namespace Acme.ClassManage.Common
 {
     public class SinhVienAppService :
         CrudAppService<SinhVien, ResponseSinhVien, Guid, PagedAndSortedResultRequestDto,
