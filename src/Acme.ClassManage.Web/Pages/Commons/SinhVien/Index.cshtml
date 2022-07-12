@@ -1,0 +1,41 @@
+﻿@page
+@using Acme.ClassManage.Permissions
+@using Acme.ClassManage.Web.Pages.Commons.SinhVien
+@using Acme.ClassManage.Localization
+@using Microsoft.Extensions.Localization
+@using Microsoft.AspNetCore.Authorization;
+
+
+@model Acme.ClassManage.Web.Pages.Commons.SinhVien.IndexModel
+@inject IStringLocalizer<ClassManageResource> L
+@inject IAuthorizationService Authorization
+
+@section scripts
+{
+    <abp-script src="/Pages/Commons/SinhVien/Index.js" />
+}
+
+
+<abp-card>
+    <abp-card-header>
+    <abp-row>
+        <abp-column size-md="_6">
+            <abp-card-title>class</abp-card-title>
+        </abp-column>
+        <abp-column size-md="_6" class="text-end">
+                 @if (await Authorization.IsGrantedAsync(ClassManagePermissions.SinhVien.Create))
+                {
+                         <abp-button id="insertsinhvien"
+                        text="class"
+                        icon="plus"
+                        button-type="Primary"/>
+                }
+           
+        </abp-column>
+    </abp-row>
+</abp-card-header>
+
+    <abp-card-body>
+        <abp-table striped-rows="true" id="ClassTableSinhVien"></abp-table>
+    </abp-card-body>
+</abp-card>

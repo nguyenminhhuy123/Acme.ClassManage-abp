@@ -4,6 +4,7 @@ using System.Text;
 using Volo.Abp.Application.Dtos;
 using Acme.ClassManage.SinhVienDTO;
 using Volo.Abp.Application.Services;
+using System.Threading.Tasks;
 
 namespace Acme.ClassManage.Services
 {
@@ -11,6 +12,9 @@ namespace Acme.ClassManage.Services
     ICrudAppService< 
     ResponseSinhVien,Guid,PagedAndSortedResultRequestDto,RequestSinhVien,RequestSinhVien>
     {
-
+       
+        
+       
+        
     }
 }

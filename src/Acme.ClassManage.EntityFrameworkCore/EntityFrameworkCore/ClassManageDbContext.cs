@@ -53,7 +53,7 @@ public class ClassManageDbContext :
     public DbSet<TenantConnectionString> TenantConnectionStrings { get; set; }
 
     #endregion
-    public DbSet<LopHoc> lophocs { get; set; }
+    public DbSet<Acme.ClassManage.Entities.Commons.LopHoc> lophocs { get; set; }
     public DbSet<SinhVien> sinhviens { get; set; }
 
     public ClassManageDbContext(DbContextOptions<ClassManageDbContext> options)
@@ -93,11 +93,11 @@ public class ClassManageDbContext :
             builder.Property(s => s.name).HasMaxLength(255).IsRequired(true);
             builder.Property(s => s.tuoi);
             builder.Property(s => s.CMND).HasMaxLength(20).IsRequired(true);
-            builder.HasOne(s => s.lophoc).WithMany(s => s.NhanViens).HasForeignKey(s => s.lophocID);
+            builder.HasOne(s => s.lophoc).WithMany(s => s.sinhvien).HasForeignKey(s => s.lophocID);
             builder.ConfigureByConvention();
         });
 
-        builder.Entity<LopHoc>(builder =>
+        builder.Entity<Entities.Commons.LopHoc>(builder =>
         {
             builder.ToTable(ClassManageConsts.DbTablePrefix + "LopHocs", ClassManageConsts.DbCommonSchema);
             builder.Property(s => s.name).HasMaxLength(255).IsRequired(true);

@@ -24,6 +24,6 @@ namespace Acme.ClassManage.SinhVienDTO
         public string CMND { get; set; }
 
         [Required(ErrorMessage ="Requried")]
-        public virtual Guid BophanID { get; set; }
+        public virtual Guid lopHocID { get; set; }
     }
 }

@@ -12,7 +12,10 @@ namespace Acme.ClassManage.SinhVienDTO
         public int tuoi { get; set; }
 
         public string CMND { get; set; }
+        
+        public Guid lophocID { get; set; }
 
-        public string bophan { get; set; }
+        public string namelophoc { get; set; }
+        
     }
 }

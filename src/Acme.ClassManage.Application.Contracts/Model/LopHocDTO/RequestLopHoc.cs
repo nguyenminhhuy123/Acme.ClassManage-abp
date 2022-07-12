@@ -9,7 +9,7 @@ namespace Acme.ClassManage.LopHocDTO
     {
         [Required(ErrorMessage ="lacking name of class")]
         [StringLength(255)]
-        [Display(Name ="name1",Prompt ="PlaceHolder")]
+        [Display(Name ="name",Prompt ="PlaceHolder")]
         public string name { get; set; }
 
         [Required(ErrorMessage = "lacking note of class")]

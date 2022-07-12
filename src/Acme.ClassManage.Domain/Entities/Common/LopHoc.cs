@@ -12,6 +12,6 @@ namespace Acme.ClassManage.Entities.Commons
         public string name { get; set; }
         public string ghichu { get; set; }
 
-        public List<SinhVien> NhanViens { get; set; }
+        public List<SinhVien> sinhvien { get; set; }
     }
 }

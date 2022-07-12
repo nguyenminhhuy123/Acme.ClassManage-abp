@@ -9,15 +9,16 @@ using Acme.ClassManage.Entities.Commons;
 using Acme.ClassManage.LopHocDTO;
 using Acme.ClassManage.Services;
 using Volo.Abp.Domain.Repositories;
+ 
 
 namespace Acme.ClassManage.Common
 {
     public class LopHocAppService : 
-        CrudAppService<LopHoc, ResponseLopHoc, Guid, PagedAndSortedResultRequestDto,
+        CrudAppService<Acme.ClassManage.Entities.Commons.LopHoc, ResponseLopHoc, Guid, PagedAndSortedResultRequestDto,
         RequestLopHoc, RequestLopHoc>, ILopHocAppService
 
     {
-        public LopHocAppService(IRepository<LopHoc, Guid> repository) : base(repository)
+        public LopHocAppService(IRepository<Acme.ClassManage.Entities.Commons.LopHoc, Guid> repository) : base(repository)
         {
         }
 

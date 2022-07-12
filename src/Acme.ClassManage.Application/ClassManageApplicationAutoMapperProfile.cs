@@ -3,6 +3,7 @@ using Acme.ClassManage.LopHocDTO;
 using Acme.ClassManage.SinhVienDTO;
 using AutoMapper;
 
+
 namespace Acme.ClassManage;
 
 public class ClassManageApplicationAutoMapperProfile : Profile
@@ -16,11 +17,12 @@ public class ClassManageApplicationAutoMapperProfile : Profile
         CreateMap<SinhVien, ResponseSinhVien>();
         CreateMap<RequestSinhVien, SinhVien>();
         CreateMap<ResponseSinhVien, RequestSinhVien>();
+        
 
 
         //lop hoc
-        CreateMap<LopHoc, ResponseLopHoc>();
-        CreateMap<RequestLopHoc, LopHoc>();
+        CreateMap< Acme.ClassManage.Entities.Commons.LopHoc, ResponseLopHoc>();
+        CreateMap<RequestLopHoc,  Acme.ClassManage.Entities.Commons.LopHoc >();
         CreateMap<ResponseLopHoc, RequestLopHoc>();
     }
 }

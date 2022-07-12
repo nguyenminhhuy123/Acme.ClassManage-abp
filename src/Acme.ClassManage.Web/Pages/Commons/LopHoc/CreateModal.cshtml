@@ -1,0 +1,21 @@
+﻿@page
+@using Acme.ClassManage.Localization
+@using Acme.ClassManage.Web.Pages.Commons
+@using Microsoft.Extensions.Localization
+@using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Modal
+@model Acme.ClassManage.Web.Pages.Commons.LopHoc.CreateModalModel
+@inject IStringLocalizer<ClassManageResource> L
+@{
+    Layout = null;
+}
+ 
+<abp-dynamic-form  abp-model="LopHoc"  asp-page="CreateModal">
+    <abp-modal>
+        <abp-modal-header title="Them lop moi"></abp-modal-header>
+        <abp-modal-body>
+            <abp-form-content />
+        </abp-modal-body>
+        <abp-modal-footer buttons="@(AbpModalButtons.Save|AbpModalButtons.Cancel)" ></abp-modal-footer>
+    </abp-modal>
+</abp-dynamic-form>
+

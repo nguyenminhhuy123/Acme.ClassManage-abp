@@ -11,16 +11,16 @@ public static class ClassManagePermissions
     {
         public const string Default = GroupNameCommon + ".LopHoc";
         public const string Update = Default + ".Update";
-        public const string Create = Default + "create";
-        public const string Delete = Default + "delete";
+        public const string Create = Default + ".Create";
+        public const string Delete = Default + ".Delete";
 
     }
     public class SinhVien
     {
         public const string Default = GroupNameCommon + ".SinhVien";
         public const string Update = Default + ".Update";
-        public const string Create = Default + "create";
-        public const string Delete = Default + "delete";
+        public const string Create = Default + ".Create";
+        public const string Delete = Default + ".Delete";
 
     }
 
