@@ -1,7 +1,7 @@
 using Acme.ClassManage.LopHocDTO;
 using Acme.ClassManage.Services;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
+
 using System;
 using System.Threading.Tasks;
 
@@ -28,9 +28,10 @@ namespace Acme.ClassManage.Web.Pages.Commons.LopHoc
         {
             var responedto = await _classAppService.GetAsync(Id);
             LopHoc = ObjectMapper.Map<ResponseLopHoc, RequestLopHoc>(responedto);
-            LopHoc.ghichu = "dung roi";
+         
+           
 
-            await _classAppService.UpdateAsync(Id, LopHoc);
+           
         }
 
         public async Task<IActionResult> OnPostAsync()

@@ -12,7 +12,7 @@ namespace Acme.ClassManage.Services
     ICrudAppService< 
     ResponseSinhVien,Guid,PagedAndSortedResultRequestDto,RequestSinhVien,RequestSinhVien>
     {
-        public  Task<PagedResultDto<ResponseSinhVien>> GetListAsync(PagedAndSortedResultRequestDto input);
+       
         
        
         

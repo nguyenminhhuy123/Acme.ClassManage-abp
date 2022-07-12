@@ -1,10 +1,13 @@
 ﻿@page
+@using Acme.ClassManage.Permissions
 @using Acme.ClassManage.Web.Pages.Commons.LopHoc
 @using Acme.ClassManage.Localization
 @using Microsoft.Extensions.Localization
+@using Microsoft.AspNetCore.Authorization;
 
 @model Acme.ClassManage.Web.Pages.Commons.LopHoc.IndexModel
 @inject IStringLocalizer<ClassManageResource> L
+@inject IAuthorizationService Authorization
 @section scripts
 {
     <abp-script src="/Pages/Commons/LopHoc/Index.js" />
@@ -17,12 +20,19 @@
         <abp-column size-md="_6">
             <abp-card-title>class</abp-card-title>
         </abp-column>
+
         <abp-column size-md="_6" class="text-end">
-            <abp-button id="insertlophoc"
+              
+                 @if (await Authorization.IsGrantedAsync(ClassManagePermissions.LopHoc.Create))
+                {
+                     <abp-button id="insertlophoc"
                         text="class"
                         icon="plus"
                         button-type="Primary"/>
+                
+                }
         </abp-column>
+
     </abp-row>
 </abp-card-header>
 

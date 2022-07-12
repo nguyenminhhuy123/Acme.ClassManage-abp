@@ -1,14 +1,14 @@
 ﻿@page
 @using Acme.ClassManage.Localization
-@using Acme.ClassManage.Web.Pages.Commons.LopHoc
+@using Acme.ClassManage.Web.Pages.Commons.SinhVien
 @using Microsoft.Extensions.Localization
 @using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Modal
-@model EditModal
+@model Acme.ClassManage.Web.Pages.Commons.SinhVien.Editmodal
 @inject IStringLocalizer<ClassManageResource> L
 @{
     Layout = null;
 }
-<abp-dynamic-form abp-model="LopHoc" asp-page="EditModal">
+<abp-dynamic-form abp-model="requestSinhVienModal" asp-page="Editmodal">
     <abp-modal>
         <abp-modal-header title="Update LopHoc"></abp-modal-header>
         <abp-modal-body>

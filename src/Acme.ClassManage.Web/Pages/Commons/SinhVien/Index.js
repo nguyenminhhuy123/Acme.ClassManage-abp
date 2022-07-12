@@ -1,7 +1,7 @@
 ﻿$(function () {
     var l = abp.localization.getResource('ClassManage');
     var createModal = new abp.ModalManager(abp.appPath + 'Commons/SinhVien/CreateModal');
-    var editModal = new abp.ModalManager(abp.appPath + 'Commons/SinhVien/EditModal');
+    var editModal = new abp.ModalManager(abp.appPath + 'Commons/SinhVien/Editmodal');
 
 
     var dataTable = $('#ClassTableSinhVien').DataTable(
@@ -16,17 +16,20 @@
 
                 {
                     title: l('Actions'),
+                
                     rowAction: {
                         items:
                             [
                                 {
                                     text: l('Edit'),
+                                    visible: abp.auth.isGranted('Common.SinhVien.Update'),
                                     action: function (data) {
                                         editModal.open({ id: data.record.id });
                                     }
                                 },
                                 {
                                     text: l('Delete'),
+                                    visible: abp.auth.isGranted('Common.SinhVien.Delete'),
                                     confirmMessage: function (data) {
                                         return l('BookDeletionConfirmationMessage', data.record.name);
                                     },
@@ -62,7 +65,7 @@
                 },
                 {
                     title: l('Bo Phan'),
-                    data: "lopHocID",
+                    data: "namelophoc",
 
 
                 },

@@ -11,6 +11,7 @@ using Volo.Abp.Application.Services;
 using Volo.Abp.Domain.Repositories;
 using Acme.ClassManage.LopHocDTO;
 using Microsoft.AspNetCore.Mvc;
+using Acme.ClassManage.Repositories;
 
 namespace Acme.ClassManage.Common
 {
@@ -18,30 +19,30 @@ namespace Acme.ClassManage.Common
         CrudAppService<SinhVien, ResponseSinhVien, Guid, PagedAndSortedResultRequestDto,
         RequestSinhVien, RequestSinhVien>, ISinhVienAppService
     {
-        public ILopHocAppService _lopHocAppService { get; set; }
-        public SinhVienAppService(IRepository<SinhVien, Guid> repository, ILopHocAppService lopHocAppService) : base(repository)
+        private readonly ISinhVienRepositories _sinhVienRepositories;
+       
+        public SinhVienAppService(IRepository<SinhVien, Guid> repository , ISinhVienRepositories sinhVienRepositories) : base(repository)
         {
-            _lopHocAppService = lopHocAppService;
+            _sinhVienRepositories = sinhVienRepositories;
+
+
         }
-
-        [HttpGet]
-        public override async  Task<PagedResultDto<ResponseSinhVien>> GetListAsync(PagedAndSortedResultRequestDto input)
+        public async override Task<PagedResultDto<ResponseSinhVien>> GetListAsync(PagedAndSortedResultRequestDto input)
         {
-         
-            PagedResultDto<ResponseSinhVien> listsinhvien =  this.GetListAsync(input).Result;
+            PagedResultDto<SinhVien> listsv = await _sinhVienRepositories.GetListAsync(input);
 
-         
-
-
-            foreach (var item in listsinhvien.Items)
+            List<ResponseSinhVien> result = new List<ResponseSinhVien>();
+            foreach (var item in listsv.Items)
             {
-
-                item.namelophoc =  _lopHocAppService.GetAsync(item.Id).Result.name;
+                var maplist = ObjectMapper.Map<SinhVien, ResponseSinhVien>(item);
+                maplist.namelophoc = item.lophoc == null ? "" : item.lophoc.name;
+                result.Add(maplist);
             }
 
 
-            return listsinhvien;
-            
-        }
+            return new PagedResultDto<ResponseSinhVien>(listsv.TotalCount,result);
+        } 
+
+
     }
 }

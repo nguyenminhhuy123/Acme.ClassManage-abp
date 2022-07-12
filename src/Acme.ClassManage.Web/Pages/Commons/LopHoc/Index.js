@@ -21,12 +21,15 @@
                             [
                                 {
                                     text: l('Edit'),
+                                    visible: abp.auth.isGranted('Common.LopHoc.Update'),
+                                       
                                     action: function (data) {
                                         editModal.open({ id: data.record.id });
                                     }
                                 },
                                 {
                                     text: l('Delete'),
+                                    visible: abp.auth.isGranted('Common.LopHoc.Delete'),
                                     confirmMessage: function (data) {
                                         return l('BookDeletionConfirmationMessage', data.record.name);
                                     },

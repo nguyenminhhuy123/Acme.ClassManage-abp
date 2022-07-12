@@ -11,6 +11,7 @@ using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Form;
 using Volo.Abp.Application.Dtos;
 using Acme.ClassManage.Web.Pages.Commons.libs;
 using Acme.ClassManage.LopHocDTO;
+using Acme.ClassManage.Web.Pages.Commons.libs.DTO_convert;
 
 namespace Acme.ClassManage.Web.Pages.Commons.SinhVien
 {
@@ -32,13 +33,15 @@ namespace Acme.ClassManage.Web.Pages.Commons.SinhVien
         }
         public virtual async Task OnGetAsync()
         {
-            string defaultname = "";
+            Nameselectitem nameselectitem = new Nameselectitem();
+            nameselectitem.defaultname = "CHON LOP";
             PagedResultDto<ResponseLopHoc> adw = await _lophocappservice.GetListAsync(new PagedAndSortedResultRequestDto
             {
                 MaxResultCount = 1000
             });
             convertlist = new Convertlist();
-            LopHocList = convertlist.Converselectlist(adw, defaultname);
+            LopHocList = convertlist.Converselectlist(adw, nameselectitem);
+                
           
        
         }
