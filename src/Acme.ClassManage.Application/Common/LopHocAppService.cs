@@ -24,18 +24,18 @@ namespace Acme.ClassManage.Common
         }
 
         [HttpGet]
-        public async Task<PagedResultDto<ResponseLopHoc>> SearchAsync(SearchConditionRequest searchConditionRequest)
+        public async Task<PagedResultDto<ResponseLopHoc>> SearchAsync(string searchConditionRequest)
         {
             var input = new PagedAndSortedResultRequestDto { MaxResultCount = 1000, SkipCount = 0 };
-            if(searchConditionRequest.Keyword== null)
+            if(searchConditionRequest== null)
             {
-                searchConditionRequest.Keyword = "";
+                searchConditionRequest = "";
             }
             PagedResultDto<ResponseLopHoc> listresultDto = new PagedResultDto<ResponseLopHoc>();
             var list = this.GetListAsync(input).Result;
-            var resultSearch = list.Items.Where(x => x.name.Contains(searchConditionRequest.Keyword));
+            var resultSearch = list.Items.Where(x => x.name.Contains(searchConditionRequest));
             listresultDto.TotalCount = resultSearch.Count();
-            listresultDto.Items = resultSearch.Skip(searchConditionRequest.SkipCount).Take(searchConditionRequest.MaxResultCount)
+            listresultDto.Items = resultSearch.Skip(0).Take(10)
                 .ToList();
 
 

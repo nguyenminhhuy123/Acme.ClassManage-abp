@@ -80,11 +80,12 @@
 
     $('#searchsubmit').click(function () {
         dataTable.destroy();
-        var input = {
-            'Keyword': $('#searchinput').val(),
-            'SkipCount': 0,
-            'MaxResultCount' :10
-        }
+        var input = 
+            $('#searchinput').val(),
+
+      
+            
+        
     dataTable = $('#ClassTableLopHoc').DataTable(
             abp.libs.datatables.normalizeConfiguration({
                 processing: true,
