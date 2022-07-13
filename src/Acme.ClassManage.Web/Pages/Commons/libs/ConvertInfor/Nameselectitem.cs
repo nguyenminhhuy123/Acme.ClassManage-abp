@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Acme.ClassManage.Web.Pages.Commons.libs.DTO_convert
+namespace Acme.ClassManage.Web.Pages.Commons.libs.ConvertInfor
 {
     public class Nameselectitem
     {

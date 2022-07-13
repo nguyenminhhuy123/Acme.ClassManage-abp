@@ -4,11 +4,12 @@ using System.Threading.Tasks;
 
 namespace Acme.ClassManage.Web.Pages.Commons.LopHoc
 {
-    public class IndexModel : PageModel
+    public class IndexModel : ClassManagePageModel
     {
-        public virtual async void OngetAsync()
-        {
+
+        public virtual async void OngetAsync() { 
             await Task.CompletedTask;
         }
+
     }
 }

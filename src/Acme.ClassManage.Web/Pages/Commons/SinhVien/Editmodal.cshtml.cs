@@ -13,7 +13,7 @@ using Volo.Abp.Application.Dtos;
 using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Form;
 using Acme.ClassManage.LopHocDTO;
 using Acme.ClassManage.Web.Pages.Commons.libs;
-using Acme.ClassManage.Web.Pages.Commons.libs.DTO_convert;
+using Acme.ClassManage.Web.Pages.Commons.libs.ConvertInfor;
 
 namespace Acme.ClassManage.Web.Pages.Commons.SinhVien
 {
@@ -51,10 +51,8 @@ namespace Acme.ClassManage.Web.Pages.Commons.SinhVien
             requestSinhVienModal = new RequestSinhVienModal();
 
             ResponseSinhVien responsesinhvien = await _sinhVienAppService.GetAsync(Id);
-            requestSinhVienModal.lopHocID = responsesinhvien.Id;
-            requestSinhVienModal.name = responsesinhvien.name;
-            requestSinhVienModal.CMND = responsesinhvien.CMND;
-            requestSinhVienModal.tuoi = responsesinhvien.tuoi;
+            requestSinhVienModal = ObjectMapper.Map<ResponseSinhVien, RequestSinhVienModal>(responsesinhvien);
+          
 
             Nameselectitem nameselectitem = new Nameselectitem();
             nameselectitem.id = responsesinhvien.lophocID;
@@ -65,7 +63,8 @@ namespace Acme.ClassManage.Web.Pages.Commons.SinhVien
 
         public async Task<IActionResult> OnPostAsync()
         {
-            _sinhVienAppService.UpdateAsync(Id, requestSinhVienModal);
+            RequestSinhVien requestSinhVien = ObjectMapper.Map<RequestSinhVienModal, RequestSinhVien>(requestSinhVienModal);   
+            await _sinhVienAppService.UpdateAsync(Id, requestSinhVien);
             return NoContent();
         }
 

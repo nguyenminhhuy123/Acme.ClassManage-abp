@@ -1,5 +1,5 @@
 ﻿using Acme.ClassManage.LopHocDTO;
-using Acme.ClassManage.Web.Pages.Commons.libs.DTO_convert;
+using Acme.ClassManage.Web.Pages.Commons.libs.ConvertInfor;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
 using Volo.Abp.Application.Dtos;

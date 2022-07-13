@@ -77,6 +77,84 @@
         e.preventDefault();
         createModal.open();
     });
+
+    $('#searchsubmit').click(function () {
+        dataTable.destroy();
+        var input = {
+            'Keyword': $('#searchinput').val(),
+            'SkipCount': 0,
+            'MaxResultCount' :10
+        }
+    dataTable = $('#ClassTableLopHoc').DataTable(
+            abp.libs.datatables.normalizeConfiguration({
+                processing: true,
+                serverSide: true,
+                paging: true,
+                
+                searching: false,
+                scrollX: true,
+                autoWith: true,
+                fixedColumns: true,
+                fixedHeader: true,
+                bLengthChange: false,
+                scrollCollapse: true,
+                ordering: false,
+
+                ajax: abp.libs.datatables.createAjax(acme.classManage.common.lopHoc.search, function () {
+                    return input;
+                }),
+                columnDefs: [
+                    {
+                        title: l('Actions'),
+                        rowAction: {
+                            items:
+                                [
+                                    {
+                                        text: l('Edit'),
+                                        visible: abp.auth.isGranted('Common.LopHoc.Update'),
+
+                                        action: function (data) {
+                                            editModal.open({ id: data.record.id });
+                                        }
+                                    },
+                                    {
+                                        text: l('Delete'),
+                                        visible: abp.auth.isGranted('Common.LopHoc.Delete'),
+                                        confirmMessage: function (data) {
+                                            return l('BookDeletionConfirmationMessage', data.record.name);
+                                        },
+                                        action: function (data) {
+                                            acme.classManage.common.lopHoc
+                                                .delete(data.record.id)
+                                                .then(function () {
+                                                    abp.notify.info(l('SuccessfullyDeleted'));
+                                                    dataTable.ajax.reload();
+                                                });
+                                        }
+                                    }
+                                ]
+
+
+                        }
+                    },
+                    {
+                        title: l('Name'),
+                        data: "name"
+                    },
+                    {
+                        title: l('ghichu'),
+                        data: "ghiChu",
+
+
+                    },
+
+                ]
+            })
+        );
+    });
+
 });
+
+
 
 
