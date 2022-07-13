@@ -4,6 +4,8 @@ using System.Text;
 using Volo.Abp.Application.Services;
 using Volo.Abp.Application.Dtos;
 using Acme.ClassManage.LopHocDTO;
+using System.Threading.Tasks;
+using Acme.ClassManage.Model.Search;
 
 namespace Acme.ClassManage.Services
 {
@@ -11,6 +13,6 @@ namespace Acme.ClassManage.Services
     ICrudAppService<
     ResponseLopHoc,Guid,PagedAndSortedResultRequestDto,RequestLopHoc,RequestLopHoc>
     {
-
+        Task<PagedResultDto<ResponseLopHoc>> SearchAsync(SearchConditionRequest searchConditionRequest);
     }
 }

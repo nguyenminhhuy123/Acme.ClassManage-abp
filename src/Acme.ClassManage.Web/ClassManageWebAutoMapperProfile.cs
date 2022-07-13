@@ -9,6 +9,7 @@ public class ClassManageWebAutoMapperProfile : Profile
     public ClassManageWebAutoMapperProfile()
     {
         //Define your AutoMapper configuration here for the Web project.
+        CreateMap<ResponseSinhVien, RequestSinhVienModal>();
         CreateMap<RequestSinhVienModal, RequestSinhVien>();
     }
 }

@@ -9,7 +9,8 @@ using Acme.ClassManage.Entities.Commons;
 using Acme.ClassManage.LopHocDTO;
 using Acme.ClassManage.Services;
 using Volo.Abp.Domain.Repositories;
- 
+using Acme.ClassManage.Model.Search;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Acme.ClassManage.Common
 {
@@ -22,7 +23,23 @@ namespace Acme.ClassManage.Common
         {
         }
 
-        
+        [HttpGet]
+        public async Task<PagedResultDto<ResponseLopHoc>> SearchAsync(SearchConditionRequest searchConditionRequest)
+        {
+            var input = new PagedAndSortedResultRequestDto { MaxResultCount = 1000, SkipCount = 0 };
+            if(searchConditionRequest.Keyword== null)
+            {
+                searchConditionRequest.Keyword = "";
+            }
+            PagedResultDto<ResponseLopHoc> listresultDto = new PagedResultDto<ResponseLopHoc>();
+            var list = this.GetListAsync(input).Result;
+            var resultSearch = list.Items.Where(x => x.name.Contains(searchConditionRequest.Keyword));
+            listresultDto.TotalCount = resultSearch.Count();
+            listresultDto.Items = resultSearch.Skip(searchConditionRequest.SkipCount).Take(searchConditionRequest.MaxResultCount)
+                .ToList();
 
+
+            return listresultDto;
+        }
     }
 }

@@ -11,7 +11,7 @@ using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Form;
 using Volo.Abp.Application.Dtos;
 using Acme.ClassManage.Web.Pages.Commons.libs;
 using Acme.ClassManage.LopHocDTO;
-using Acme.ClassManage.Web.Pages.Commons.libs.DTO_convert;
+using Acme.ClassManage.Web.Pages.Commons.libs.ConvertInfor;
 
 namespace Acme.ClassManage.Web.Pages.Commons.SinhVien
 {
