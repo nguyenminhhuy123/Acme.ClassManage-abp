@@ -110,8 +110,8 @@
                 ajax: abp.libs.datatables.createAjax(acme.classManage.common.lopHoc.search, function () {
                     return {
                         keyword: $('#searchinput').val(),
-                        maxResultCount: 1000,
-                        skipCount:1
+                        maxResultCount1: 1000,
+                        skipCount1:1
                       
                     };
                 }),
