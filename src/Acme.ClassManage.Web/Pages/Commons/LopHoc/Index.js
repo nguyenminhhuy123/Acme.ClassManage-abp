@@ -80,18 +80,20 @@
 
     $('#searchsubmit').click(function () {
         dataTable.destroy();
-        var input = 
-            $('#searchinput').val(),
+        var inputAction = function (requestData, dataTableSettings) {
+            return {
+                Keyword: $('#searchinput').val(),
+                SkipCount: 0,
+                MaxResultCount: 9
+            };
+        };
 
-      
-            
-        
-    dataTable = $('#ClassTableLopHoc').DataTable(
+             dataTable = $('#ClassTableLopHoc').DataTable(
             abp.libs.datatables.normalizeConfiguration({
                 processing: true,
                 serverSide: true,
                 paging: true,
-                
+                order: [[1, "asc"]],
                 searching: false,
                 scrollX: true,
                 autoWith: true,
@@ -99,11 +101,21 @@
                 fixedHeader: true,
                 bLengthChange: false,
                 scrollCollapse: true,
-                ordering: false,
+                ordering: true,
+
+           
+
+         
 
                 ajax: abp.libs.datatables.createAjax(acme.classManage.common.lopHoc.search, function () {
-                    return input;
+                    return {
+                        keyword: $('#searchinput').val(),
+                        maxResultCount: 1000,
+                        skipCount:1
+                      
+                    };
                 }),
+                
                 columnDefs: [
                     {
                         title: l('Actions'),

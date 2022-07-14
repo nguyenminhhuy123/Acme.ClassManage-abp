@@ -13,6 +13,6 @@ namespace Acme.ClassManage.Services
     ICrudAppService<
     ResponseLopHoc,Guid,PagedAndSortedResultRequestDto,RequestLopHoc,RequestLopHoc>
     {
-        Task<PagedResultDto<ResponseLopHoc>> SearchAsync(string searchConditionRequest);
+        Task<PagedResultDto<ResponseLopHoc>> SearchAsync(SearchConditionRequest searchConditionRequest);
     }
 }
